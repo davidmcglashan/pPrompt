@@ -44,6 +44,15 @@ while True:
 	ch = getch()
 	pBuffer.handleKeyPress( ch )
 
+	# read the size of the terminal, and work out how many lines the output *might* be. Then move
+	# the cursor up that number. This is naive as all hell but stops wrapping text going crazy in the
+	# terminal. Other issues still exist.
+	columns, rows = os.get_terminal_size(0)
+	bufstr = pBuffer.string()
+	lines = len(bufstr)/columns
+	sys.stdout.write( "\33[A"*int(lines) )
+	
 	# Display a prompt and the current state of the buffer. Here we used the buffer's
 	# output, not its string, so that ANSI or control characters get properly represented.
 	sys.stdout.write( "\33[2K\r> " + pBuffer.output() )
+	
