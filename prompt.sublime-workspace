@@ -1,0 +1,316 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"c",
+				"childNodes"
+			],
+			[
+				"text-",
+				"text-decoration\tproperty"
+			],
+			[
+				"text",
+				"text-decoration\tproperty"
+			],
+			[
+				"page",
+				"page-bg"
+			],
+			[
+				"for",
+				"forEach"
+			],
+			[
+				"cl",
+				"calendar"
+			],
+			[
+				"set",
+				"settings"
+			],
+			[
+				"pase",
+				"parseOff"
+			],
+			[
+				"list-style",
+				"list-style-type\tproperty"
+			],
+			[
+				"border",
+				"border-bottom\tproperty"
+			],
+			[
+				"in",
+				"innerHTML"
+			],
+			[
+				"list",
+				"listElement"
+			],
+			[
+				"s",
+				"split"
+			],
+			[
+				"le",
+				"length-1"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "prompt.py",
+			"settings":
+			{
+				"buffer_size": 0,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 157.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/david/Web/davidmcglashan.github.io/css/css.css",
+		"/Users/david/Web/davidmcglashan.github.io/roll.js",
+		"/Users/david/Web/davidmcglashan.github.io/css.css",
+		"/Users/david/Web/davidmcglashan.github.io/calendar.js",
+		"/Users/david/Web/davidmcglashan.github.io/page.js",
+		"/Users/david/Web/davidmcglashan.github.io/parser.js",
+		"/Users/david/Web/davidmcglashan.github.io/sidebar.py",
+		"/Users/david/Web/davidmcglashan.github.io/roll.py",
+		"/Users/david/Web/davidmcglashan.github.io/build.py",
+		"/Users/david/Web/davidmcglashan.github.io/minify.py",
+		"/Users/david/Library/Application Support/Sublime Text 3/Local/Session.sublime_session",
+		"/Users/david/Library/Application Support/Sublime Text 3/Local/Auto Save Session.sublime_session",
+		"/Users/david/Web/davidmcglashan.github.io/parse.html",
+		"/Users/david/Library/Application Support/Sublime Text 3/Packages/User/david.mcglashan.net.sublime-build",
+		"/Users/david/Web/davidmcglashan.github.io/david.mcglashan.net.sublime-workspace",
+		"/Users/david/Web/davidmcglashan.github.io/david.mcglashan.net.sublime-project",
+		"/Users/david/Web/david.mcglashan.net/articles/20201612.txt",
+		"/C/Users/david.mcglashan/OneDrive - Ideagen plc/Desktop/david/david.mcglashan.net.sublime-project",
+		"/C/Users/david.mcglashan/OneDrive - Ideagen plc/Desktop/david/david.mcglashan.net.sublime-workspace"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"listable",
+			"lis§",
+			"\"nav\"",
+			"_parseOff",
+			"\\n",
+			"github",
+			"\\n",
+			"var"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"!parseOff",
+			"\n",
+			"let"
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "prompt.py",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 161.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/User/david.mcglashan.net.sublime-build",
+	"project": "/Users/david/Web/davidmcglashan.github.io/david.mcglashan.net.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/Web/custom-css/custom-css.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": true,
+	"show_tabs": false,
+	"side_bar_visible": true,
+	"side_bar_width": 238.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
