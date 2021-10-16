@@ -45,8 +45,8 @@ while True:
 	pBuffer.handleKeyPress( ch )
 
 	# read the size of the terminal, and work out how many lines the output *might* be. Then move
-	# the cursor up that number. This is naive as all hell but stops wrapping text going crazy in the
-	# terminal. Other issues still exist.
+	# the cursor up that number before we let it be drawn. This is naive as all hell but stops
+	# wrapping text going crazy in the terminal. Other issues still exist.
 	columns, rows = os.get_terminal_size(0)
 	bufstr = pBuffer.string()
 	lines = len(bufstr)/columns
