@@ -1,6 +1,7 @@
 import sys
 import pHistory
 import pCodes
+import pComplete
 
 index = -1
 buffer = list()
@@ -38,6 +39,10 @@ def handleKeyPress( c ):
 	elif c == pCodes.key_Esc:
 		clear()
 		
+	# Tab issues an autocomplete.
+	elif c == pCodes.key_Tab:
+		tab()
+
 	# Otherwise, append the current character onto the end of the buffer.
 	else:
 		append(c)
@@ -110,3 +115,29 @@ def clear():
 	global index
 	buffer = list()
 	index = -1
+
+# ========================================================
+#  Handles a tab key press based on the current buffer.
+# ========================================================
+def tab():
+	# track back from index to find a good starting point
+	start = index
+	while start > 0:
+		start = start - 1
+		if buffer[start] == ' ':
+			break
+
+	word = "".join(buffer[start:index+1])
+
+	# If we're starting to the beginning of the string then match a command
+	if start == 0:
+		matches = pComplete.commandMatch( word )
+	else:
+		matches = list()
+
+	# A single match gets to become the buffer content
+	if len( matches ) == 1:
+		set( matches[0] + ' ' )
+	else:
+		print()
+		print( "\t".join(matches) )
