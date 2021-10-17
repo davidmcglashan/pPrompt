@@ -56,6 +56,31 @@ def set( str ):
 		for chr in str:
 			append( chr )
 
+# =====================================================================
+#  Remove the characters between i and index from the current buffer.
+# =====================================================================
+def removeTo( i ):
+	global index
+
+	while index != i:
+		if i < index:
+			buffer.pop( i )
+		else:
+			buffer.pop( index )
+		index = index - 1
+	buffer.pop( index )
+	index = index - 1
+
+# ===========================================
+#  Insert a string into the current buffer.
+# ===========================================
+def insert( str ):
+	global index
+
+	for chr in str:
+		buffer.insert( index+1, chr )
+		index = index + 1
+
 # ======================================
 #  Append a character to the buffer
 # ======================================
@@ -123,21 +148,35 @@ def tab():
 	# track back from index to find a good starting point
 	start = index
 	while start > 0:
-		start = start - 1
-		if buffer[start] == ' ':
+		if buffer[start-1] == ' ':
 			break
+		start = start - 1
 
+	# buffer is a char array so we need to join our range to make a string we can search with.
 	word = "".join(buffer[start:index+1])
 
-	# If we're starting to the beginning of the string then match a command
+	# Search the commands dictionary if we're at the beginning of the buffer.
 	if start == 0:
-		matches = pComplete.commandMatch( word )
-	else:
-		matches = list()
+		matches = pComplete.match( 'commands', word )
 
-	# A single match gets to become the buffer content
-	if len( matches ) == 1:
-		set( matches[0] + ' ' )
+	# Otherwise, use the commands dictionary everywhere else. (for now)
+	else:
+		matches = pComplete.match( 'commands', word )
+
+	# No matches does nothing.
+	if len( matches ) == 0:
+		return
+
+	# A single match gets to become the buffer content.
+	elif len( matches ) == 1:
+		removeTo( start )
+		insert( matches[0] )
+
+		# If we're at the end of the buffer also append a space to be nice.
+		if index == len(buffer)-1:
+			insert( ' ' )
+
+	# Lots of matches get displayed in the terminal.
 	else:
 		print()
 		print( "\t".join(matches) )

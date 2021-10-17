@@ -1,8 +1,5 @@
 TODO
 ====
 - tab complete
-  - multiple dictionaries
   - parse a JSON file to compile a dictionary
-  - input a list to compile a dictionary
-  - Use tab to complete when multiple words in buffer - set() becomes replace() etc.
 - Various other ^? key short cuts

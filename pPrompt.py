@@ -2,9 +2,22 @@ import os,sys, termios, tty
 
 import pBuffer
 import pCodes
-
+import pComplete
 fdInput = sys.stdin.fileno()
 termAttr = termios.tcgetattr(0)
+
+# Put 100 random words in the commands dictionary.
+pComplete.putList( 'commands', { 'adorable','arch','attraction',
+'bad','bent','bounce','calculating','calm','capable','changeable','chess','chunky','competition',
+'curious','dare','decorous','describe','diligent','earsplitting','easy','egg','expert','explain',
+'exultant','fasten','fluffy','front','fry','goofy','gratis','habitual','helpless','hill','idiotic',
+'impossible','impress','irritate','jewel','judge','kaput','kick''known','lock','loss','machine',
+'meddle','medical','metal','note','ordinary','part','pause','peep','perform','poised','poison','prose',
+'question','quiet','quilt','range','road','room','rural','seal','seat','sheep','skillful','small',
+'smiling','spray','step','stitch','story','stream','substantial','super','tail','tasteless','teeth',
+'territory','thoughtful','threatening','unable','unfasten','unite','unnatural','unwieldy','vest',
+'view','volcano','waiting','want','well-off','whimsical','wide','witty','woman','wonder','worthless'
+} )
 
 # =============================================
 #  Read a single character from the keyboard
