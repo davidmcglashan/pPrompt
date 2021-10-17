@@ -8,9 +8,10 @@ dictionaries = dict()
 def match( dic, ins ):
     matches = list()
 
+    lins = ins.lower()
     if dic in dictionaries:
         for c in dictionaries[dic]:
-            if c.startswith( ins ):
+            if c.lower().startswith( ins ):
                 matches.append( c )
 
         matches.sort()
