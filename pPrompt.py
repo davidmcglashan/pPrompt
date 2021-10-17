@@ -19,6 +19,9 @@ pComplete.putList( 'commands', { 'adorable','arch','attraction',
 'view','volcano','waiting','want','well-off','whimsical','wide','witty','woman','wonder','worthless'
 } )
 
+# Put a JSON file into the payload dictionary.
+pComplete.putJsonFile( 'payload', 'example.json' )
+
 # =============================================
 #  Read a single character from the keyboard
 # =============================================

@@ -161,7 +161,7 @@ def tab():
 
 	# Otherwise, use the commands dictionary everywhere else. (for now)
 	else:
-		matches = pComplete.match( 'commands', word )
+		matches = pComplete.match( 'payload', word )
 
 	# No matches does nothing.
 	if len( matches ) == 0:

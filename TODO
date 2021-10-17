@@ -1,7 +1,6 @@
 TODO
 ====
-- tab complete
-  - parse a JSON file to compile a dictionary
+- make tab matches case insensitive but inserts case sensitive
 - Various other ^? key short cuts
 - Make this a package and use it ...
   - here as an examplar
