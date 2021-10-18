@@ -27,9 +27,9 @@ def handleKeyPress( c ):
 			sys.exit(0)
 
 		sys.stdout.write( "\33[2K\r> " + st + "\n" )
-		sys.stdout.write( "\rexecute this statement ... (%s)\n" % st )
 		pHistory.add( st )
 		clear()
+		return st
 	
 	# Backspace must be passed onto the buffer.
 	elif c == pCodes.key_BkSpc:
