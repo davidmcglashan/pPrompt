@@ -90,7 +90,7 @@ def walk( dic, data ):
         words = data.split( ' ' )
         for word in words:
             try:
-                dictionaries[dic].add( word )
+                dictionaries[dic].add( word.replace( '\n', '' ) )
             except( KeyError ):
                 pass
 

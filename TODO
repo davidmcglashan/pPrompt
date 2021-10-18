@@ -1,6 +1,5 @@
 TODO
 ====
-- remove line returns etc. from dictionary entries as they go in
 - when all tab matches have the same stem, insert the stem without a space e.g. f-u-TAB inserts fugiat
 - subsequent tabs cycle through inserted suggestions (need to remember insertion point)
 - Various other ^? key short cuts
