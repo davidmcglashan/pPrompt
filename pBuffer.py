@@ -178,5 +178,27 @@ def tab():
 
 	# Lots of matches get displayed in the terminal.
 	else:
+		# Find the longest 'stem' that matches all the matches
+		l = len( word )
+		count = len( matches )
+		stem = ''
+
+		while count == len( matches ):
+			insertstem = stem
+			count = 0
+			l = l + 1
+			stem = matches[0][0:l].lower()
+
+			# Does everyone else match the stem?
+			for m in matches:
+				if len(m) < l:
+					break
+				elif m.lower().startswith( stem ):
+					count = count + 1
+
+		if len(insertstem) > len(word):
+			removeTo( start )
+			insert( insertstem )
+
 		print()
 		print( "\t".join(matches) )
