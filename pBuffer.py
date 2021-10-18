@@ -153,7 +153,10 @@ def tab():
 		start = start - 1
 
 	# buffer is a char array so we need to join our range to make a string we can search with.
-	word = "".join(buffer[start:index+1])
+	try:
+		word = "".join(buffer[start:index+1])
+	except( TypeError ):
+		return
 
 	# Search the commands dictionary if we're at the beginning of the buffer.
 	if start == 0:

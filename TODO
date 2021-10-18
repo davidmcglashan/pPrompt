@@ -1,6 +1,5 @@
 TODO
 ====
-- when all tab matches have the same stem, insert the stem without a space e.g. f-u-TAB inserts fugiat
 - subsequent tabs cycle through inserted suggestions (need to remember insertion point)
 - Various other ^? key short cuts
 - Make this a package and use it ...
