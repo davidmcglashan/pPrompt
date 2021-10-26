@@ -1,8 +1,8 @@
 import os, sys, termios, tty
 
-import pBuffer
-import pCodes
-import pComplete
+from . import pBuffer
+from . import pCodes
+from . import pComplete
 
 # =============================================
 #  Read a single character from the keyboard

@@ -1,26 +1,40 @@
 import sys
-import pHistory
-import pCodes
-import pComplete
+from . import pHistory
+from . import pCodes
+from . import pComplete
 
 index = -1
 buffer = list()
+escToggle = 0
 
 # ========================================
 #  Handles key presses from the terminal.
 # =========================================
 def handleKeyPress( c ):
+	global escToggle
+	ch = c[0]
+
+	# If this char is an esc sequence it means the _next_ key press is meaningful. This one can be
+	# ignored and shouldn't be added to the buffer.
+	if ch == pCodes.seq_Esc:
+		escToggle = 1 - escToggle
+		return
+
+	# Ctrl+C quits quickly and immediately.
+	elif ch == pCodes.key_CtrlC:
+		sys.exit(0)
+
 	# Up arrow replaces the buffer content with the previous historical line.
-	if c == pCodes.key_Up:
+	elif escToggle == 1 and ch == pCodes.key_Up:
 		set( pHistory.previous() )
 
 	# Down arrow replaces the buffer content with the next historical line.
-	elif c == pCodes.key_Down:
+	elif escToggle == 1 and ch == pCodes.key_Down:
 		set( pHistory.next() )
 
 	# Enter submits the current line for processing, adds it to history, and clears the
 	# buffer ready for the next line.
-	elif c == pCodes.key_Enter:
+	elif ch == pCodes.key_Enter:
 		st = string()
 		if st in { 'q', 'quit' }:
 			print()
@@ -32,20 +46,22 @@ def handleKeyPress( c ):
 		return st
 	
 	# Backspace must be passed onto the buffer.
-	elif c == pCodes.key_BkSpc:
+	elif ch == pCodes.key_BkSpc:
 		backspace()
 
 	# Esc can be used to clear all of the current line.
-	elif c == pCodes.key_Esc:
+	elif ch == pCodes.key_Esc:
 		clear()
 		
 	# Tab issues an autocomplete.
-	elif c == pCodes.key_Tab:
+	elif ch == pCodes.key_Tab:
 		tab()
 
 	# Otherwise, append the current character onto the end of the buffer.
 	else:
-		append(c)
+		append( chr(ch) )
+
+	escToggle = 0
 
 # ======================================
 #  Set a string as the current buffer
