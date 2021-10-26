@@ -1,5 +1,10 @@
+import platform
+
 # The only functions we want to expose are use of the prompt ...
-from .pInitWindows import prompt
+if platform.system() == "Windows":
+    from .pInitWindows import prompt
+else:
+    from .pInitUnix import prompt
 
 # ... and adding things to the autocomplete dictionary ...
 from .pComplete import putList

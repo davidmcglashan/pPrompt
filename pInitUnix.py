@@ -12,25 +12,20 @@ def getch():
     tty.setraw(fdInput)
     ch = sys.stdin.buffer.raw.read(4).decode(sys.stdin.encoding)
 
-    # Some characters are 1 char long and therefore simple to deal with.
-    if len(ch) == 1:
-    	# Ctrl+C quits the program. We do this as soon as possible to be a good citizen.
-        if ord(ch[0]) == pCodes.key_CtrlC:
-            sys.exit(0)
-
-        # Characters less than 32 and greater than 126 aren't alphanumerics. We convert
-        # these to their ordinal counterparts for ease of working later.
-        if ord(ch) < 32 or ord(ch) > 126:
-            ch = ord(ch)
+   	# Ctrl+C quits the program. We do this as soon as possible to be a good citizen.
+    if ord(ch[0]) == pCodes.key_CtrlC:
+        sys.exit(0)
 
     # Escape characters have 127 as their first character. This must be replaced
     # with \033 for some reason.
-    elif ord(ch[0]) == pCodes.key_Esc:
-        ch = '\033' + ch[1:]
+    if ord(ch[0]) == pCodes.key_Esc and len(ch)>2:
+        rch = [ pCodes.seq_Esc, ord(ch[2]) ]
+    else:
+   	    rch = [ord(ch[0])]
 
     # More terminal magic and then return our character.
     termios.tcsetattr(fdInput, termios.TCSADRAIN, termAttr)
-    return ch
+    return rch
 
 # ======================================
 #  Main loop
@@ -41,9 +36,10 @@ def prompt( callback=None ):
 	while True:
 		# Get a single character and let the buffer process it.
 		ch = getch()
-		command = pBuffer.handleKeyPress( ch )
-		if command != None and callback != None:
-			callback( command )
+		for chr in ch:
+			command = pBuffer.handleKeyPress( [chr] )
+			if command != None and callback != None:
+				callback( command )
 
 		# read the size of the terminal, and work out how many lines the output *might* be. Then move
 		# the cursor up that number before we let it be drawn. This is naive as all hell but stops

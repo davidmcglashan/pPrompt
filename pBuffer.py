@@ -25,11 +25,11 @@ def handleKeyPress( c ):
 		sys.exit(0)
 
 	# Up arrow replaces the buffer content with the previous historical line.
-	elif escToggle == 1 and ch == pCodes.key_Up:
+	elif escToggle == 1 and ch in pCodes.key_Up:
 		set( pHistory.previous() )
 
 	# Down arrow replaces the buffer content with the next historical line.
-	elif escToggle == 1 and ch == pCodes.key_Down:
+	elif escToggle == 1 and ch in pCodes.key_Down:
 		set( pHistory.next() )
 
 	# Enter submits the current line for processing, adds it to history, and clears the
@@ -46,7 +46,7 @@ def handleKeyPress( c ):
 		return st
 	
 	# Backspace must be passed onto the buffer.
-	elif ch == pCodes.key_BkSpc:
+	elif ch in pCodes.key_BkSpc:
 		backspace()
 
 	# Esc can be used to clear all of the current line.
