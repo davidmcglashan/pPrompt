@@ -11,5 +11,8 @@ key_Up = {72,65}
 key_Down = {80,66}
 
 # Don't think these are used. The keys are pressed; don't think pPrompt acts on them. Remove ..?
-key_Right = '\033[C'
-key_Left = '\033[D'
+key_Right = {77}
+key_Left = {75}
+
+seq_Right = '\033[C'
+seq_Left = '\033[D'

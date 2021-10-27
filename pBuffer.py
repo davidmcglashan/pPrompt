@@ -32,12 +32,19 @@ def handleKeyPress( c ):
 	elif escToggle == 1 and ch in pCodes.key_Down:
 		set( pHistory.next() )
 
+	# 
+	elif escToggle == 1 and ch in pCodes.key_Left:
+		append( pCodes.seq_Left )
+
+	# 
+	elif escToggle == 1 and ch in pCodes.key_Right:
+		append( pCodes.seq_Right )
+
 	# Enter submits the current line for processing, adds it to history, and clears the
 	# buffer ready for the next line.
 	elif ch == pCodes.key_Enter:
 		st = string()
 		if st in { 'q', 'quit' }:
-			print()
 			sys.exit(0)
 
 		sys.stdout.write( "\33[2K\r> " + st + "\n" )
@@ -104,10 +111,10 @@ def append( chr ):
 	global index
 
 	# detect arrow key presses that move the index within the buffer
-	if chr == pCodes.key_Left and index > -1:
+	if chr == pCodes.seq_Left and index > -1:
 		buffer.append( chr )
 		index = index - 1
-	elif chr == pCodes.key_Right and index < len(string()):
+	elif chr == pCodes.seq_Right and index < len(string()):
 		buffer.append( chr )
 		index = index + 1
 	else:
@@ -133,7 +140,7 @@ def string():
 	str = ""
 	for chr in buffer:
 		try:
-			if chr not in { pCodes.key_Left, pCodes.key_Right }:
+			if chr not in { pCodes.seq_Left, pCodes.seq_Right }:
 				str = str + chr
 		except( TypeError ):
 			str = str + "?"
