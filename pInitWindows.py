@@ -4,9 +4,11 @@ from . import pBuffer
 from . import pCodes
 from . import pComplete
 
+# I can't remember what this does. I think it forces Windows to use ANSI characters at the prompt.
+os.system('')
+
 class _Getch:
-    """Gets a single character from standard input.  Does not echo to the
-screen."""
+    # Gets a single character from standard input.  Does not echo to the screen.
     def __init__(self):
         try:
             self.impl = _GetchWindows()
@@ -14,7 +16,6 @@ screen."""
             self.impl = _GetchUnix()
 
     def __call__(self): return self.impl()
-
 
 class _GetchUnix:
     def __init__(self):
@@ -30,7 +31,6 @@ class _GetchUnix:
         finally:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
         return ch
-
 
 class _GetchWindows:
     def __init__(self):
@@ -65,34 +65,3 @@ def prompt( callback=None ):
 		# Display a prompt and the current state of the buffer. Here we used the buffer's
 		# output, not its string, so that ANSI or control characters get properly represented.
 		sys.stdout.write( "\33[2K\r> " + pBuffer.output() )
-
-# ===========================================================
-#  Default callback (attached only when running standalone)
-# ===========================================================
-def callback( str=None ):
-	print( "\rexecute this statement ... (%s)\n" % str )
-
-# ======================================
-#  Stuff to do when the module is imported
-# ======================================
-os.system('')
-
-
-# Populate the dictionaries when running standalone
-if (__name__ == '__main__'):
-	# Put 100 random words in the commands dictionary.
-	pComplete.putList( 'commands', { 'adorable','arch','attraction',
-	'bad','bent','bounce','calculating','calm','capable','changeable','chess','chunky','competition',
-	'curious','dare','decorous','describe','diligent','earsplitting','easy','egg','expert','explain',
-	'exultant','fasten','fluffy','front','fry','goofy','gratis','habitual','helpless','hill','idiotic',
-	'impossible','impress','irritate','jewel','judge','kaput','kick''known','lock','loss','machine',
-	'meddle','medical','metal','note','ordinary','part','pause','peep','perform','poised','poison','prose',
-	'question','quiet','quilt','range','road','room','rural','seal','seat','sheep','skillful','small',
-	'smiling','spray','step','stitch','story','stream','substantial','super','tail','tasteless','teeth',
-	'territory','thoughtful','threatening','unable','unfasten','unite','unnatural','unwieldy','vest',
-	'view','volcano','waiting','want','well-off','whimsical','wide','witty','woman','wonder','worthless'
-	} )
-
-	# Put a JSON file into the payload dictionary.
-	pComplete.putJsonFile( 'payload', 'example.json' )
-	prompt( callback )
