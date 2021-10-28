@@ -183,11 +183,17 @@ def tab():
 
 	# Search the commands dictionary if we're at the beginning of the buffer.
 	if start == 0:
-		matches = pComplete.match( 'commands', word )
+		matches = pComplete.match( '_', word )
 
-	# Otherwise, use the commands dictionary everywhere else. (for now)
+	# Otherwise, assume there's a command or first word at the start of the buffer ...
 	else:
-		matches = pComplete.match( 'payload', word )
+		space = 0
+		while space < len(buffer):
+			space = space + 1
+			if buffer[space] == ' ':
+				break
+		command = "".join(buffer[0:space])
+		matches = pComplete.match( command, word )
 
 	# No matches does nothing.
 	if len( matches ) == 0:
@@ -222,9 +228,11 @@ def tab():
 				elif m.lower().startswith( stem ):
 					count = count + 1
 
+		# Put the longest matching stem into the buffer: saves typing it!
 		if len(insertstem) > len(word):
 			removeTo( start )
 			insert( insertstem )
 
-		print()
+		# Display the matches in the next line, at the beginning of the row.
+		print( "\r" )
 		print( "\t".join(matches) )

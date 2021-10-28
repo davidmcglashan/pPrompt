@@ -11,15 +11,18 @@ def match( dic, ins ):
     lins = ins.lower()
     if dic in dictionaries:
         for c in dictionaries[dic]:
-            if c.lower().startswith( ins ):
+            if c.lower().startswith( lins ):
                 matches.append( c )
 
         matches.sort()
 
+    if len( matches ) == 0 and dic != '*':
+        return match( '*', ins )
+
     return matches
 
 # ===================================================================
-#  Returns any words matching the in string in the named dictionary.
+#  Clear the named dictionary.
 # ===================================================================
 def clear( dic ):
     if dic in dictionaries:
@@ -61,7 +64,7 @@ def putJson( dic, json_data ):
     walk( dic, json_data )
 
 # ============================================================================================
-#  
+#  Walk a JSON structure adding any words we find to the named dictionary as we go.
 # ============================================================================================
 def walk( dic, data ):
     # Lists are simply walked by their contents.
@@ -78,7 +81,7 @@ def walk( dic, data ):
                 pass
             walk( dic, data[k] )
 
-    # Integers get put in the dictionary
+    # Integers get put in the dictionary (they may be primary keys, longs, etc.)
     elif type( data ) == type( int() ):
         try:
             dictionaries[dic].add( str(data) )
