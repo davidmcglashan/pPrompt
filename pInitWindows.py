@@ -47,10 +47,7 @@ def prompt( callback=None ):
 	sys.stdout.write( "\r> ")
 	getch = _Getch()
 
-	i = 0
-	while i<100:
-		i=i+1
-
+	while True:
 		# Get a single character and let the buffer process it.
 		ch = getch()
 		command = pBuffer.handleKeyPress( ch )
