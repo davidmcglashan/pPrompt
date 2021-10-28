@@ -10,3 +10,4 @@ else:
 from .pComplete import putList
 from .pComplete import putJsonFile
 from .pComplete import putJson
+from .pComplete import clear
