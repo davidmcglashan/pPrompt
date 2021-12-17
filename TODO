@@ -1,7 +1,21 @@
 TODO
 ====
+- complete command configs
+  - default behaviour is "command dict-for-command *" but this could be overriden:
+  - configureDict( "pers", ["pers"] ) - restrict pers command to the pers dictionary
+  - configureDict( "post", ["@"]) - restrict post to files in the current directory
+  - configureDict( "get", ["*","pers"]) - get and put can access global and perspectives where they need to
+  - configureDict( "put", ["*","pers","*"])
+  - configureDict( "help", ["_"]) - help can be sought about other commands
+- have var and array commands autopopulate their own dictionaries
+  - configureDict( "var", ["var"] )
+  - configureDict( "array", ["array"] )
+  - configureDict( "postvar", ["*","var|array","*","var|array","*","var|array","*","var|array","*","var|array"])
+- post and script read files with TAB
 - subsequent tabs cycle through inserted suggestions (need to remember insertion point)
+- use or remove the getch for unix in initUnix
 - Various other ^? key short cuts
-- Make this a package and use it ...
-  - here as an examplar
-  - somewhere else (iac)
+- Document pPrompt
+  - github README
+  - github wiki
+  - mcglashan.net articles
