@@ -13,7 +13,7 @@ escToggle = 0
 def handleKeyPress( c ):
 	global escToggle
 	ch = c[0]
-
+	
 	# If this char is an esc sequence it means the _next_ key press is meaningful. This one can be
 	# ignored and shouldn't be added to the buffer.
 	if ch == pCodes.seq_Esc:
